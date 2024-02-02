@@ -75,7 +75,6 @@ export default {
         }
       }
 
-      console.log(arrInput)
       if (arrInput.length === listInput) {
         requestOrder(arrInput);
       }
