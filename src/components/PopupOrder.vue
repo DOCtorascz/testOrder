@@ -59,7 +59,6 @@ export default {
           if (!validateEmail(emailPattern.value)) {
             emailPattern.parentNode.children[1].classList.add('target')
           } else if (i === inputNum + 1) {
-            console.log('s')
             valueInput.parentNode.children[1].classList.remove('target')
             arrInput.push(valueInput);
           }
