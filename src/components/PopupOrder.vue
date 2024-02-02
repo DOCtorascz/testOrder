@@ -20,11 +20,9 @@ export default {
           city_id: this.$store.state.popupObj.select,
         };
 
-        console.log(data)
-
         axios.post('http://hh.autodrive-agency.ru/testtasks/front/task-7/', data)
           .then(function (response) {
-            console.log('Всё успешно');
+            alert('Всё успешно');
           })
           .catch(function (error) {
             alert('Сейчас наблюдаются некоторые проблемы с сервером: ' + error);
@@ -59,8 +57,9 @@ export default {
           }
 
           if (!validateEmail(emailPattern.value)) {
-            emailPattern.classList.add('target')
+            emailPattern.parentNode.children[1].classList.add('target')
           } else if (i === inputNum + 1) {
+            console.log('s')
             valueInput.parentNode.children[1].classList.remove('target')
             arrInput.push(valueInput);
           }
@@ -76,6 +75,9 @@ export default {
       }
 
       if (arrInput.length === listInput) {
+        arrInput.forEach(element => {
+          element.value = ""
+        });
         requestOrder(arrInput);
       }
 
@@ -101,8 +103,8 @@ export default {
             <div class="target-stl">*Обязательное поле</div>
           </div>
           <div class="form__input-section">
-            <input class="form__input" type="tel" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" maxlength="20" placeholder="Телефон"
-              required>
+            <input class="form__input" type="tel" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" maxlength="20"
+              placeholder="Телефон" required>
             <div class="target-stl">*Обязательное поле: +7 (000) 000-00-00</div>
           </div>
           <div class="form__input-section">
